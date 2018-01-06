@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>word</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>编辑单词</h1>
+<br/><br/>
+<div class="with:80%">
+    <form class="form-horizontal"   th:action="@{/edit}" th:object="${word}"  method="post">
+        <input type="hidden" name="id" th:value="*{id}" />
+        <div class="form-group">
+            <label for="frequency" class="col-sm-2 control-label">frequency</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="frequency"  id="frequency" th:value="*{frequency}" placeholder="frequency"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="spelling" class="col-sm-2 control-label" >spelling</label>
+            <div class="col-sm-10">
+                <input type="spelling" class="form-control" name="spelling" id="spelling"  th:value="*{spelling}" placeholder="spelling"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="level" class="col-sm-2 control-label">level</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="level"  id="level" th:value="*{level}" placeholder="level"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="partsOfSpeech" class="col-sm-2 control-label">partsOfSpeech</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="partsOfSpeech"  id="partsOfSpeech" th:value="*{partsOfSpeech}" placeholder="partsOfSpeech"/>
+            </div>
+        </div>
+		<div class="form-group">
+            <label for="meanings" class="col-sm-2 control-label">meanings</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="meanings"  id="meanings" th:value="*{meanings}" placeholder="meanings"/>
+            </div>
+        </div>
+        
+		<div class="form-group">
+            <label for="sentences" class="col-sm-2 control-label">sentences</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="sentences"  id="sentences" th:value="*{sentences}" placeholder="sentences"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <div th:if="${errorMsg != null}"  class="alert alert-danger" role="alert" th:text="${errorMsg}">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Submit" class="btn btn-info" />
+                &nbsp; &nbsp; &nbsp;
+                <a  th:href="@{/list}" class="btn btn-info">Back</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
